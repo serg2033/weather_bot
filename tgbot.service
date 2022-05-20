@@ -1,0 +1,16 @@
+# /etc/systemd/system
+
+[Unit]
+Description=Telegram Bot
+After=network.target
+
+[Service]
+User=ubuntu
+Group=ubuntu
+
+WorkingDirectory=/home/ubuntu/bot/
+Environment="PYTHONPATH=/home/ubuntu/bot/"
+ExecStart=/home/ubuntu/bot/.venv/bin/python /home/ubuntu/bot/main.py
+
+[Install]
+WantedBy=multi-user.target
